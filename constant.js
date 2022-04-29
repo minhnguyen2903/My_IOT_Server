@@ -1,9 +1,9 @@
 const users = [
   {
-    userId: "2AzZ9d",
+    userId: "minh",
     name: "John Doe",
     password: "admin",
-    apiKey: "dsEsxde2341",
+    apiKey: "minh",
     lastRequest: 0,
     data: {
       responseData: {
@@ -46,10 +46,10 @@ const users = [
     },
   },
   {
-    userId: "2AzE9d",
+    userId: "minh1",
     name: "John Doe",
     password: "admin",
-    apiKey: "dsEsxde2342",
+    apiKey: "minh1",
     data: {
       responseData: {
         output0: false,

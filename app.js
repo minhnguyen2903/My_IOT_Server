@@ -18,6 +18,8 @@ const io = new Server(server, {
   },
 });
 
+const port = process.env.PORT || 8163;
+
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
@@ -29,7 +31,11 @@ io.on("connection", (socket) => {
 app.get("/api/init/:userId", (req, res) => {
   const { userId } = req.params;
   const user = users.find((user) => user.userId === userId);
-  res.json(user.data);
+  if(user) {
+    res.json(user.data);
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
 });
 
 app.post("/api/login", (req, res) => {
@@ -121,6 +127,33 @@ app.post("/api/ledMode", (req, res) => {
   }
 });
 
-server.listen(8163, () => {
-  console.log("listening on *:3000");
+app.post('/api/change-password', (req, res) => {
+  const { userId, password } = req.body;
+  const user = users.find((user) => user.userId === userId);
+  console.log(req.body)
+  if (user) {
+    user.password = password;
+    Object.assign(users, user);
+    res.json(user);
+  } else {
+    res.status(401).send("ERROR");
+  }
+});
+
+app.get('/api/reset/:userId', (req, res) => {
+  const { userId } = req.params;
+  const user = users.find((user) => user.userId === userId);
+  if (user) {
+    user.password = 'admin';
+    Object.assign(users, user);
+    res.json({
+      message: "Request OKKK"
+    });
+  } else {
+    res.status(401).send("ERROR");
+  }
+})
+
+server.listen(port, () => {
+  console.log("listening on *:",port);
 });
