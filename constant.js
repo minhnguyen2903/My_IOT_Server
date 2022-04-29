@@ -4,6 +4,7 @@ const users = [
     name: "John Doe",
     password: "admin",
     apiKey: "dsEsxde2341",
+    lastRequest: 0,
     data: {
       responseData: {
         output0: false,
@@ -12,17 +13,41 @@ const users = [
         ledMode: "case1",
       },
       clientData: {
-        sw0: false,
-        sw1: true,
-        sw2: false,
-        sensor: 2000,
+        output0: false,
+        output1: false,
+        output2: false,
+        sensor: [
+          {
+            name: "KHÍ GAS",
+            value: 0,
+            unit: "%",
+          },
+          {
+            name: "NHIỆT ĐỘ",
+            value: 0,
+            unit: "°C",
+          },
+        ],
+        sensorData: [
+          {
+            name: "KHÍ GAS",
+            data: [
+
+            ],
+          },
+          {
+            name: "NHIỆT ĐỘ",
+            data: [
+            ],
+          },
+        ],
         ledMode: "case1",
       },
     },
   },
   {
-    userId: "2Aze9d",
-    name: "Jane Doe",
+    userId: "2AzE9d",
+    name: "John Doe",
     password: "admin",
     apiKey: "dsEsxde2342",
     data: {
@@ -33,10 +58,31 @@ const users = [
         ledMode: "case1",
       },
       clientData: {
-        sw0: false,
-        sw1: false,
-        sw2: true,
-        sensor: 2312,
+        output0: false,
+        output1: false,
+        output2: false,
+        sensor: [
+          {
+            name: "KHÍ GAS",
+            value: 0,
+            unit: "%",
+          },
+          {
+            name: "NHIỆT ĐỘ",
+            value: 0,
+            unit: "°C",
+          },
+        ],
+        sensorData: [
+          {
+            name: "KHÍ GAS",
+            data: [],
+          },
+          {
+            name: "NHIỆT ĐỘ",
+            data: [],
+          },
+        ],
         ledMode: "case1",
       },
     },
